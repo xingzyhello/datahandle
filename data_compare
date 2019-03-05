@@ -1,0 +1,21 @@
+int data_bit_compare(unsigned char *p_data1,unsigned char *p_data2,unsigned int num_bit)
+{
+  unsigned int byte_index=0,bit_shift=0;
+  unsigned int ii=0;
+  unsigned char data1=0,data2=0;
+  unsigned int result=0;
+  
+  if(NULL==p_data)return -1;    
+  if(num_bit < 1)return -2;
+  
+  for(ii=0,ii<num_bit;ii++)
+  {
+    byte_index = ii/8;
+    bit_shift = 7 - ii%8;
+    data1 = (p_data1[byte_index] >> bit_shift) & 1;
+    data2 = (p_data2[byte_index] >> bit_shift) & 1;
+    if(data1 != data2)
+      result;++;
+  }
+  return result;
+}
